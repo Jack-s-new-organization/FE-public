@@ -8,3 +8,4 @@ provide correct github API client data to us
 
 1. first commit to trigger the builds
 2. second PR to test CI
+8. 8's PR to test the CI
