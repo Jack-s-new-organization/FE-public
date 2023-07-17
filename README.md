@@ -5,3 +5,5 @@ official documentation
 # add the detailed instruction below
 do not save your credentials in the browser
 provide correct github API client data to us
+
+2. second PR to test CI
