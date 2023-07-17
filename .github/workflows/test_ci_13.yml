@@ -1,0 +1,26 @@
+name: Pull Request and Push CI 13
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        build-number: [1, 2]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run build ${{ matrix.build-number }}
+        run: |
+          echo "Running build ${{ matrix.build-number }}"
+          # Place your build commands or scripts here
