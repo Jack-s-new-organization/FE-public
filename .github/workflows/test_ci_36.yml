@@ -1,4 +1,4 @@
-name: Pull Request and Push CI
+name: Pull Request and Push CI 36
 
 on:
   pull_request:
