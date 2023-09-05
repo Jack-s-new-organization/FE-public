@@ -15,4 +15,4 @@ jobs:
     steps:
       - name: Send Slack Notification
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"New version of dev"}' https://hooks.slack.com/services/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
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, new version!"}' https://hooks.slack.com/services/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
