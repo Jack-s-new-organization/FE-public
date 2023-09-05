@@ -1,19 +1,18 @@
-name: Pull Request and Push CI 1
+name: Send Slack Notification
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
     branches:
       - main
 
 jobs:
-  build:
+  send-notification:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Slack Notify
+      - name: Send Slack Notification
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"new pushes to the PR"}' https://hooks.slack.com/services/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
-        
+          # Your API request to send a message to Slack
+          curl -X POST -H "Content-type: application/json" --data '{
+            "text": "GitHub Action Notification: A push event just occurred on the main branch."
+          }' https://hooks.slack.com/services/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
