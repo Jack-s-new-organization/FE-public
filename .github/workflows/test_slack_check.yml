@@ -18,4 +18,4 @@ jobs:
           # Your API request to send a message to Slack
           curl -X POST -H "Content-type: application/json" --data '{
             "text": "GitHub Action Notification: A push event just occurred on the main branch."
-          }' https://hooks.slack.com/services/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
+          }' https://hooks.slack.com/services/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
