@@ -1,0 +1,21 @@
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - edited
+      - synchronize
+
+jobs:
+  enforce-pr-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR Title Format
+        run: |
+          title_regex="^(CYP|DEV)-[0-9]+: .+"
+          pr_title="${{ github.event.pull_request.title }}"
+          if [[ ! $pr_title =~ $title_regex ]]; then
+            echo "Invalid PR title format. PR titles must match the pattern: ${title_regex}"
+            echo "Example PR title: 'CYP-555: this is a PR title example'"
+            exit 1
+          fi
