@@ -1,0 +1,22 @@
+name: Slack Notification
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  slack-notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Notify on Slack
+        env:
+          SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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
+          SLACK_CHANNEL: cypago
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Repository: $GITHUB_REPOSITORY, Event: $GITHUB_EVENT_NAME"}' $SLACK_WEBHOOK_URL
